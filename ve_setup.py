@@ -157,6 +157,7 @@ if __name__ == '__main__':
         """Main function."""
 
         version = VIRTUALENV_VERSION
+        args = []
         if len(sys.argv) > 1:
             args = sys.argv[1:]
             if '--venv_version' == args[0]:
