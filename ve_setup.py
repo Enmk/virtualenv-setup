@@ -157,7 +157,13 @@ if __name__ == '__main__':
         """Main function."""
 
         version = VIRTUALENV_VERSION
-        args = sys.argv[1:] if len(sys.argv) > 1 else VIRTUALENV_ARGS
+        if len(sys.argv) > 1:
+            args = sys.argv[1:]
+            if '--venv_version' == args[0]:
+                version = args[1]
+                args = args[2:]
+        if len(args) == 0:
+            args = VIRTUALENV_ARGS
         use_virtualenv(args, version)
 
     try:
